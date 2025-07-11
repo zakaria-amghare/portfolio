@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaki's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blurred-bg"></div>
+    <div class="card-container">
+        <div class="card-content">
+            <div class="photo-section">
+                <img src="assets/AI.png" alt="AI Image" class="profile-photo">
+            </div>
+            <div class="text-section">
+                <h1 class="name-title">This is Zaki</h1>
+                <p class="subtitle">My Portfolio</p>
+                <p class="description">
+                    Well actually this is not me but an AI photo of me – hope you like it!
+                </p>
+                <p class="description">
+                    I am a <span class="highlight">cyber security enthusiast</span> 🔐
+                </p>
+                <p class="description">
+                    I am a student at the <span class="institution">University of Engineering and Technology USTHB</span> 🎓
+                </p>
+                <p class="description">
+                    I am a member of the <span class="clubs">Microclub and Open Mind</span> at USTHB 🤝
+                </p>
+                <div class="cta">
+                    🚀 Keep exploring my portfolio to know more about my projects
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Casino Cards Section -->
+    <div class="casino-section">
+        <h2 class="casino-title">🎰 My Project Cards 🎰</h2>
+        <p class="casino-subtitle">Click on each card to reveal the project secrets!</p>
+        
+        <div class="cards-container">
+            <!-- Card 1 - Cybersecurity Project -->
+            <div class="card-flip" onclick="flipCard(1)">
+                <div class="card-inner" id="card1">
+                    <div class="card-front">
+                        <div class="card-back-design">
+                            <div class="card-pattern"></div>
+                            <div class="card-logo">♠️</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-content-inner">
+                            <div class="card-suit">♠️</div>
+                            <h3>Security Scanner</h3>
+                            <p>Advanced vulnerability assessment tool built with Python. Scans networks for security flaws and generates detailed reports.</p>
+                            <a href="https://github.com/zaki/security-scanner" class="github-link" target="_blank">
+                                🔗 View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 - Web Security -->
+            <div class="card-flip" onclick="flipCard(2)">
+                <div class="card-inner" id="card2">
+                    <div class="card-front">
+                        <div class="card-back-design">
+                            <div class="card-pattern"></div>
+                            <div class="card-logo">♥️</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-content-inner">
+                            <div class="card-suit">♥️</div>
+                            <h3>Web Firewall</h3>
+                            <p>Custom web application firewall with real-time threat detection. Blocks malicious requests and protects against OWASP Top 10.</p>
+                            <a href="https://github.com/zaki/web-firewall" class="github-link" target="_blank">
+                                🔗 View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 - Encryption Tool -->
+            <div class="card-flip" onclick="flipCard(3)">
+                <div class="card-inner" id="card3">
+                    <div class="card-front">
+                        <div class="card-back-design">
+                            <div class="card-pattern"></div>
+                            <div class="card-logo">♦️</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-content-inner">
+                            <div class="card-suit">♦️</div>
+                            <h3>Crypto Vault</h3>
+                            <p>Military-grade encryption tool for secure file storage. Features AES-256 encryption with secure key management.</p>
+                            <a href="https://github.com/zaki/crypto-vault" class="github-link" target="_blank">
+                                🔗 View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 4 - Network Monitor -->
+            <div class="card-flip" onclick="flipCard(4)">
+                <div class="card-inner" id="card4">
+                    <div class="card-front">
+                        <div class="card-back-design">
+                            <div class="card-pattern"></div>
+                            <div class="card-logo">♣️</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-content-inner">
+                            <div class="card-suit">♣️</div>
+                            <h3>Network Sentinel</h3>
+                            <p>Real-time network monitoring dashboard. Tracks traffic patterns, detects anomalies, and alerts on suspicious activities.</p>
+                            <a href="https://github.com/zaki/network-sentinel" class="github-link" target="_blank">
+                                🔗 View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function flipCard(cardNumber) {
+            const card = document.getElementById(`card${cardNumber}`);
+            card.classList.toggle('flipped');
+            
+            // Add some casino sound effect feel (optional)
+            // You can add actual sound files later
+            console.log(`🎰 Card ${cardNumber} flipped!`);
+        }
+        
+        // Add some hover effects and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-flip');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
