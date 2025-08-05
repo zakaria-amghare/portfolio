@@ -20,9 +20,12 @@ const Cards = () => {
 
   return (
     <div className="casino-section">
-        <h2 className="casino-title">🎰 My Project Cards 🎰</h2>
-        <p className="casino-subtitle">Click on each card to reveal the project secrets!</p>
         
+        <div className="casino-header">
+            <h2 className="casino-title">🎰My Project Cards </h2>
+            <p className="casino-subtitle">Click on each card to reveal the project secrets!</p>
+        </div>
+
         <div className="cards-container">
             {/* Card 1 - Compiler Project */}
             <div className="card-flip" onClick={() => flipCard(1)}>

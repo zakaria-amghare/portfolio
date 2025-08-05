@@ -9,7 +9,10 @@ const App = () => {
     <div>
       <Bg></Bg>
       <Navbar></Navbar>
+      <br />
       <Hero></Hero>
+      <br />
+      <br />
       <Cards></Cards>
     </div>
   );
