@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Creepster&family=Bungee&display=swap');
 
 .hero {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Fredoka One', cursive;
     position: relative;
     min-height: 100vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 
 /* Main Portfolio Section - Full Width */
 .main-portfolio-section {
@@ -22,123 +25,424 @@
 
 /* Card Container */
 .card-container {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 40px;
-    margin: 30px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(220, 20, 60, 0.08) 50%, rgba(255, 215, 0, 0.1) 100%);
+    padding: 50px;
+    margin: 0 auto;
     width: 100%;
     max-width: 1200px;
-    border-radius: 20px;
+    border-radius: 30px;
     position: relative;
-    z-index: 1;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.2),
+        0 0 100px rgba(220, 20, 60, 0.15),
+        inset 0 0 50px rgba(255, 255, 255, 0.05);
+    animation: cardGlow 4s ease-in-out infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.4), rgba(220, 20, 60, 0.3), rgba(255, 215, 0, 0.4), rgba(139, 0, 0, 0.3), rgba(255, 215, 0, 0.4));
+    background-size: 400% 400%;
+    border-radius: 30px;
+    z-index: -1;
+    animation: borderAnimation 3s ease-in-out infinite;
+}
+
+.card-container::after {
+    content: '✨';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    animation: sparkle 2s ease-in-out infinite;
+    color: rgba(255, 215, 0, 0.7);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 /* Card Content Layout */
 .card-content {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
+    position: relative;
 }
 
 /* Photo Section */
 .photo-section {
     flex-shrink: 0;
     text-align: center;
+    position: relative;
+}
+
+.photo-section::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border: 3px dashed rgba(255, 215, 0, 0.5);
+    border-radius: 50%;
+    animation: rotateBorder 8s linear infinite;
+    opacity: 0.6;
 }
 
 .profile-photo {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.8s ease;
+    border: 6px solid rgba(255, 215, 0, 0.8);
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(220, 20, 60, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.8s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .profile-photo:hover {
-    transform: scale(1.3);
+    transform: scale(1.5);
+    box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.6),
+        0 0 100px rgba(220, 20, 60, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 /* Text Section */
 .text-section {
     flex: 1;
+    position: relative;
 }
 
 /* Typography */
 .name-title {
-    font-size: 2.5em;
+    font-size: 3.5em;
     font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 10px;
-    text-transform: capitalize;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.9), rgba(255, 165, 0, 0.8), rgba(255, 215, 0, 0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.2);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+    position: relative;
+}
+
+.name-title::after {
+    content: '🎪';
+    position: absolute;
+    right: -60px;
+    top: 0;
+    font-size: 0.7em;
+    animation: bounce 2s ease-in-out infinite;
 }
 
 .subtitle {
-    font-size: 1.2em;
-    color: #7f8c8d;
-    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: rgba(255, 215, 0, 0.9);
+    margin-bottom: 25px;
     font-style: italic;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    animation: subtitleFlicker 4s ease-in-out infinite;
 }
 
 .description {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #34495e;
-    margin-bottom: 15px;
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: rgba(255, 215, 0, 0.85);
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(139, 0, 0, 0.3);
+    padding: 10px 0;
+    position: relative;
 }
 
 /* Highlight Colors */
 .highlight {
-    color: #e74c3c;
+    color: rgba(220, 20, 60, 0.9);
     font-weight: bold;
+    text-shadow: 0 0 8px rgba(220, 20, 60, 0.4);
+    animation: highlightPulse 2s ease-in-out infinite;
 }
 
 .institution {
-    color: #3498db;
+    color: rgba(255, 215, 0, 0.9);
     font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    animation: institutionGlow 3s ease-in-out infinite alternate;
 }
 
 .clubs {
-    color: #27ae60;
+    color: rgba(255, 165, 0, 0.9);
     font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
+    animation: clubsShine 2.5s ease-in-out infinite;
 }
 
 /* Call to Action */
 .cta {
-    font-size: 1.1em;
-    color: #8e44ad;
+    font-size: 1.4em;
+    color: rgba(139, 0, 0, 0.9);
     font-weight: bold;
-    margin-top: 20px;
-    padding: 15px;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    border-radius: 10px;
-    border-left: 4px solid #8e44ad;
+    margin-top: 30px;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.7) 0%, rgba(255, 165, 0, 0.6) 50%, rgba(255, 215, 0, 0.7) 100%);
+    border-radius: 25px;
+    border: 3px solid rgba(220, 20, 60, 0.6);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.cta:hover::before {
+    left: 100%;
+}
+
+.cta:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.4),
+        0 10px 30px rgba(220, 20, 60, 0.2),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Keyframe Animations */
+@keyframes casinoBackground {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes floatingLights {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes marquee {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes cardGlow {
+    0% { 
+        box-shadow: 
+            0 0 50px rgba(255, 215, 0, 0.2),
+            0 0 100px rgba(220, 20, 60, 0.15),
+            inset 0 0 50px rgba(255, 255, 255, 0.05);
+    }
+    100% { 
+        box-shadow: 
+            0 0 80px rgba(255, 215, 0, 0.3),
+            0 0 150px rgba(220, 20, 60, 0.2),
+            inset 0 0 80px rgba(255, 255, 255, 0.08);
+    }
+}
+
+@keyframes borderAnimation {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.3) rotate(180deg); opacity: 0.7; }
+}
+
+@keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.2); }
+    100% { text-shadow: 2px 2px 20px rgba(139, 0, 0, 0.4); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes subtitleFlicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes highlightPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes institutionGlow {
+    0% { text-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
+    100% { text-shadow: 0 0 16px rgba(255, 215, 0, 0.6); }
+}
+
+@keyframes clubsShine {
+    0%, 100% { text-shadow: 0 0 8px rgba(255, 165, 0, 0.4); }
+    50% { text-shadow: 0 0 20px rgba(255, 165, 0, 0.6); }
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .card-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
+@media (max-width: 1024px) {
+    .card-container {
+        padding: 40px;
+        margin: 20px;
+    }
+    
+    .name-title {
+        font-size: 3em;
     }
     
     .profile-photo {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
+    }
+    
+    .card-content {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero::after {
+        font-size: 20px;
+        top: 10px;
+    }
+    
+    .card-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .profile-photo {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .name-title {
+        font-size: 2.5em;
+        letter-spacing: 2px;
+    }
+    
+    .name-title::after {
+        right: -40px;
+        font-size: 0.6em;
+    }
+    
+    .subtitle {
+        font-size: 1.5em;
+    }
+    
+    .description {
+        font-size: 1.2em;
+    }
+    
+    .cta {
+        font-size: 1.2em;
+        padding: 18px 25px;
+        letter-spacing: 1px;
+    }
+    
+    .card-container {
+        padding: 35px;
+        margin: 15px;
+    }
+    
+    .main-portfolio-section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        padding: 25px;
+        margin: 10px;
+        border-radius: 20px;
+    }
+    
+    .profile-photo {
+        width: 140px;
+        height: 140px;
     }
     
     .name-title {
         font-size: 2em;
+        letter-spacing: 1px;
     }
     
-    .card-container {
-        padding: 30px;
+    .name-title::after {
+        right: -30px;
+        font-size: 0.5em;
     }
     
-    .main-portfolio-section {
-        padding: 10px;
+    .subtitle {
+        font-size: 1.3em;
+    }
+    
+    .description {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+    
+    .cta {
+        font-size: 1.1em;
+        padding: 15px 20px;
+    }
+    
+    .card-content {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 320px) {
+    .name-title {
+        font-size: 1.8em;
+    }
+    
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .description {
+        font-size: 1em;
+    }
+    
+    .cta {
+        font-size: 1em;
+        padding: 12px 18px;
     }
 }

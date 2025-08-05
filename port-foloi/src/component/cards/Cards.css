@@ -1,0 +1,222 @@
+
+.casino-section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.0);
+    backdrop-filter: blur(10px);
+}
+
+.casino-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0);
+}
+
+.casino-subtitle {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Flip Animation */
+.card-flip {
+    background-color: transparent;
+    width: 95%;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0,);
+}
+
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border: 3px solid gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    transform: rotateY(180deg);
+    border: 3px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Card Back Design (Face Down) */
+.card-back-design {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-pattern {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, #ffd700 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, #ffd700 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    border-radius: 10px;
+}
+
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Card Content (Face Up) */
+.card-content-inner {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.card-suit {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.card-content-inner h3 {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.card-content-inner p {
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.github-link {
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+}
+
+.github-link:hover {
+    background: linear-gradient(135deg, #555, #777);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Suit-specific colors */
+.card-flip:nth-child(1) .card-suit,
+.card-flip:nth-child(4) .card-suit {
+    color: #2c3e50; /* Spades and Clubs - Black */
+}
+
+.card-flip:nth-child(2) .card-suit,
+.card-flip:nth-child(3) .card-suit {
+    color: #e74c3c; /* Hearts and Diamonds - Red */
+}
+
+/* Responsive Cards */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+    
+    .card-flip {
+        height: 300px;
+    }
+    
+    .casino-title {
+        font-size: 2em;
+    }
+    
+    .card-logo {
+        font-size: 3em;
+    }
+    
+    .casino-section {
+        padding: 40px 10px;
+    }
+}
+
+.card-flip:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.card-flip {
+    transition: transform 0.3s ease;
+}

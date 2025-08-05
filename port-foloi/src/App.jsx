@@ -1,14 +1,16 @@
 import React from "react";
 import Navbar from "./component/Navbar/Navbar.jsx"; // Importing the Navbar component
 import Hero from "./component/Hero/Hero.jsx"; // Importing the Hero component
-import Bg from "./component/background/Bg.jsx";
+import Bg from "./component/Background/Bg.jsx";
+import Cards from "./component/cards/Cards.jsx";
 
 const App = () => {
   return (
     <div>
+      <Bg></Bg>
       <Navbar></Navbar>
       <Hero></Hero>
-      <Bg></Bg>
+      <Cards></Cards>
     </div>
   );
 }
