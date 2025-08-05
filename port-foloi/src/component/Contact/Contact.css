@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Creepster&family=Bungee&display=swap');
+
+.contact {
+    padding: 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact::before {
+    content: '🎪 ✨ 🎭 ✨ 🎪 ✨ 🎭 ✨ 🎪 ✨ 🎭 ✨';
+    position: absolute;
+    top: 20px;
+    left: -50%;
+    width: 200%;
+    font-size: 25px;
+    animation: contactMarquee 20s linear infinite;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.contact-Header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-title {
+    font-size: 4em;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.9), rgba(255, 165, 0, 0.8), rgba(255, 215, 0, 0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.3);
+    animation: titlePulse 3s ease-in-out infinite alternate;
+    position: relative;
+}
+
+.contact-title::after {
+    content: '📞';
+    position: absolute;
+    right: -80px;
+    top: 0;
+    font-size: 0.6em;
+    animation: phoneRing 2s ease-in-out infinite;
+}
+
+.contact-subtitle {
+    font-size: 1.4em;
+    color: rgba(255, 215, 0, 0.8);
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(139, 0, 0, 0.3);
+    animation: subtitleGlow 4s ease-in-out infinite;
+    margin: 0;
+}
+
+.contact-form {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(220, 20, 60, 0.08) 50%, rgba(255, 215, 0, 0.1) 100%);
+    padding: 50px 40px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.2),
+        0 0 100px rgba(220, 20, 60, 0.15),
+        inset 0 0 50px rgba(255, 255, 255, 0.05);
+    animation: formGlow 4s ease-in-out infinite alternate;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 2;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.4), rgba(220, 20, 60, 0.3), rgba(255, 215, 0, 0.4), rgba(139, 0, 0, 0.3), rgba(255, 215, 0, 0.4));
+    background-size: 400% 400%;
+    border-radius: 30px;
+    z-index: -1;
+    animation: borderShimmer 3s ease-in-out infinite;
+}
+
+.contact-form::after {
+    content: '💌';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 35px;
+    animation: letterFloat 3s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 18px 25px;
+    border: 3px solid rgba(255, 215, 0, 0.4);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(220, 20, 60, 0.03) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-size: 16px;
+    font-family: 'Fredoka One', cursive;
+    color: rgba(255, 215, 0, 0.9);
+    outline: none;
+    transition: all 0.4s ease;
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    name: inherit;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 215, 0, 0.6);
+    font-family: 'Fredoka One', cursive;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: rgba(255, 215, 0, 0.7);
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.3),
+        0 0 50px rgba(220, 20, 60, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(220, 20, 60, 0.05) 100%);
+}
+
+.contact-form input[type="text"] {
+    transition: all 0.4s ease;
+}
+
+.contact-form input[type="email"] {
+    transition: all 0.4s ease;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+    font-family: 'Fredoka One', cursive;
+}
+
+.contact-form button {
+    padding: 20px 40px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.8) 0%, rgba(255, 165, 0, 0.7) 50%, rgba(255, 215, 0, 0.8) 100%);
+    border: 3px solid rgba(220, 20, 60, 0.6);
+    border-radius: 25px;
+    color: rgba(139, 0, 0, 0.9);
+    font-size: 18px;
+    font-family: 'Fredoka One', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: buttonPulse 4s ease-in-out infinite;
+}
+
+.contact-form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.contact-form button:hover::before {
+    transform: scale(1.2);
+    left: 100%;
+}
+
+.contact-form button:hover {
+    transform: scale(1.05) rotate(2deg);
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.9) 0%, rgba(255, 215, 0, 0.8) 50%, rgba(255, 165, 0, 0.9) 100%);
+    box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.5),
+        0 10px 30px rgba(220, 20, 60, 0.3),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.contact-form button:active {
+    transform: scale(1.02) rotate(1deg);
+}
+
+.contact-form button[type="submit"] {
+    align-self: center;
+    min-width: 200px;
+}
+
+/* Keyframe Animations */
+@keyframes contactMarquee {
+    0% { left: -50%; }
+    100% { left: 100%; }
+}
+
+@keyframes titlePulse {
+    0% { 
+        text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.3);
+        transform: scale(1);
+    }
+    100% { 
+        text-shadow: 2px 2px 20px rgba(139, 0, 0, 0.5);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes phoneRing {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(10deg) scale(1.1); }
+    75% { transform: rotate(-10deg) scale(1.1); }
+}
+
+@keyframes subtitleGlow {
+    0%, 100% { 
+        opacity: 0.8;
+        text-shadow: 1px 1px 2px rgba(139, 0, 0, 0.3);
+    }
+    50% { 
+        opacity: 1;
+        text-shadow: 1px 1px 10px rgba(139, 0, 0, 0.5);
+    }
+}
+
+@keyframes formGlow {
+    0% { 
+        box-shadow: 
+            0 0 50px rgba(255, 215, 0, 0.2),
+            0 0 100px rgba(220, 20, 60, 0.15),
+            inset 0 0 50px rgba(255, 255, 255, 0.05);
+    }
+    100% { 
+        box-shadow: 
+            0 0 80px rgba(255, 215, 0, 0.3),
+            0 0 150px rgba(220, 20, 60, 0.2),
+            inset 0 0 80px rgba(255, 255, 255, 0.08);
+    }
+}
+
+@keyframes borderShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes letterFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes buttonPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact {
+        padding: 60px 15px;
+    }
+    
+    .contact-title {
+        font-size: 3.5em;
+        letter-spacing: 3px;
+    }
+    
+    .contact-title::after {
+        right: -60px;
+        font-size: 0.5em;
+    }
+    
+    .contact-subtitle {
+        font-size: 1.3em;
+    }
+    
+    .contact-form {
+        padding: 40px 30px;
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact::before {
+        font-size: 20px;
+    }
+    
+    .contact {
+        padding: 40px 10px;
+    }
+    
+    .contact-Header {
+        margin-bottom: 40px;
+    }
+    
+    .contact-title {
+        font-size: 2.8em;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+    
+    .contact-title::after {
+        right: -45px;
+        font-size: 0.4em;
+    }
+    
+    .contact-subtitle {
+        font-size: 1.2em;
+    }
+    
+    .contact-form {
+        padding: 35px 25px;
+        max-width: 100%;
+        gap: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+    
+    .contact-form textarea {
+        min-height: 120px;
+    }
+    
+    .contact-form button {
+        padding: 18px 35px;
+        font-size: 16px;
+        letter-spacing: 1px;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 30px 10px;
+    }
+    
+    .contact-title {
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+    
+    .contact-title::after {
+        right: -35px;
+        font-size: 0.4em;
+    }
+    
+    .contact-subtitle {
+        font-size: 1.1em;
+    }
+    
+    .contact-form {
+        padding: 30px 20px;
+        gap: 18px;
+        border-radius: 25px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px 18px;
+        font-size: 14px;
+        border-radius: 15px;
+    }
+    
+    .contact-form textarea {
+        min-height: 100px;
+    }
+    
+    .contact-form button {
+        padding: 15px 30px;
+        font-size: 15px;
+        border-radius: 20px;
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 320px) {
+    .contact-title {
+        font-size: 1.8em;
+    }
+    
+    .contact-title::after {
+        right: -25px;
+        font-size: 0.3em;
+    }
+    
+    .contact-subtitle {
+        font-size: 1em;
+    }
+    
+    .contact-form {
+        padding: 25px 15px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+    
+    .contact-form button {
+        padding: 12px 25px;
+        font-size: 14px;
+        min-width: 140px;
+    }
+}
