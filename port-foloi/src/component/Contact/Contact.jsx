@@ -31,7 +31,7 @@ const Contact = () => {
   return (
     <div className="contact">
         <div className="contact-Header">
-      <h1 className="contact-title">Contact Us</h1>
+      <h1 className="contact-title">Contact me</h1>
       <p className="contact-subtitle">If you have any questions, feel free to reach out!</p>
         </div>
         <form id="contact-form" onSubmit={onSubmit} className="contact-form">
