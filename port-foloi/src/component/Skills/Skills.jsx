@@ -140,17 +140,15 @@ const RouletteSkillsBoard = () => {
 
   return (
     <div className="roulette-container">
-      {/* Main Portfolio Section */}
-      <div className="portfolio-section">
-        {/* Card Container */}
-        <div className={`card-container ${spinning ? 'spinning' : ''}`}>
-          {/* Animated Border */}
-          <div className="animated-border" />
-
-          {/* Sparkle Effect */}
-          <div className="sparkle-effect">✨</div>
-
-          {/* Header Section */}
+      <div className="disclamer">
+        <h1 className='diclamer-header'>
+          check my skills and hold your bets 
+        </h1>
+        <p className='diclamer-expalination'>
+          select a number and trough the dice
+        </p>
+      </div>
+      
           <div className="header-section">
             {/* Main Title */}
             <h1 className={`main-title ${spinning ? 'title-spinning' : ''}`}>

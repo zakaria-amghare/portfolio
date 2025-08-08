@@ -1,6 +1,8 @@
 import React from "react";
+import { useState } from "react";
 import "./Contact.css"; // Importing the CSS file for styling
 const Contact = () => {
+
  const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -22,6 +24,7 @@ const Contact = () => {
     if (res.success) {
       console.log("Success", res);
     }
+    event.target.reset();
   };
 
 
@@ -31,7 +34,7 @@ const Contact = () => {
       <h1 className="contact-title">Contact Us</h1>
       <p className="contact-subtitle">If you have any questions, feel free to reach out!</p>
         </div>
-        <form onSubmit={onSubmit} className="contact-form">
+        <form id="contact-form" onSubmit={onSubmit} className="contact-form">
 
           
 <input type="text" name="name" placeholder="Your Name" required />
