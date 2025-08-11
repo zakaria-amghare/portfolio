@@ -2,11 +2,10 @@ import React from "react";
 import { useState } from "react";
 import "./Contact.css"; // Importing the CSS file for styling
 const Contact = () => {
-
- const onSubmit = async (event) => {
-    event.preventDefault();
+const onSubmit = async (event) => {
+  event.preventDefault();
+  try {
     const formData = new FormData(event.target);
-
     formData.append("access_key", "33874ec8-9c38-4a3b-b9e4-5ef230e64a7e");
 
     const object = Object.fromEntries(formData);
@@ -22,10 +21,16 @@ const Contact = () => {
     }).then((res) => res.json());
 
     if (res.success) {
-      console.log("Success", res);
+      alert("Thank you for your message! I'll get back to you soon.");
+    } else {
+      alert("There was an error sending your message. Please try again later.");
     }
     event.target.reset();
-  };
+  } catch (error) {
+    console.error("Fetch error:", error);
+    alert("Network error. Please check your connection.");
+  }
+};
 
 
   return (
