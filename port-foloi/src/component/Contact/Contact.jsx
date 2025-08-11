@@ -34,7 +34,8 @@ const onSubmit = async (event) => {
 
 
   return (
-    <div className="contact">
+    <div className="contact" id="connect-with-me">
+      <a href="#connect-with-me"></a>
         <div className="contact-Header">
       <h1 className="contact-title">Contact me</h1>
       <p className="contact-subtitle">If you have any questions, feel free to reach out!</p>

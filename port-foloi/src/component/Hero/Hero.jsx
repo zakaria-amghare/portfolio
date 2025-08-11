@@ -3,7 +3,7 @@ import "./Hero.css"; // Assuming you have a CSS file for styling
 import AI from "../../assets/AI.png"; // Importing the AI image
 const Hero = () => {
   return (
-    <div className="hero">
+    <div className="hero" id="hero-section">
  <div className="card-container">
         <div className="card-content">
             <div className="photo-section">

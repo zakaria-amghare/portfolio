@@ -5,13 +5,17 @@ const Navbar = () => {
     <div className="navbar">
       <h1>Zaki-chan</h1>
       <ul className="nav-links">
+        <a href="#hero-section">
         <li>About me </li>
+        </a>
         <li>projects</li>
         <li>Skills</li>   
         <li>Contact</li>
         <li>Resume</li>
       </ul>
-      <div className="connect-with-me">connect with me 😊</div>
+      <a href="#connect-with-me">
+      <div className="connect-with-me" >connect with me 😊</div>
+      </a>
     </div>
   );
 };

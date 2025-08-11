@@ -16,7 +16,7 @@ const App = () => {
       <br />
       <br />
       <Cards></Cards>
-      <Contact></Contact>
+      <Contact ></Contact>
       <Footer></Footer>
     </div>
   );
