@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&display=swap');
+
+.roulette-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Fredoka One', cursive;
+}
+
+/* ── Header ── */
+.header-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.main-title {
+  font-size: 2.8em;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+  animation: shimmer 4s linear infinite;
+}
+
+.main-title.title-spinning {
+  animation: shimmer 0.6s linear infinite;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: rgba(255, 215, 0, 0.85);
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+/* ── Spin Button ── */
+.spin-button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  border: 3px solid rgba(220, 20, 60, 0.6);
+  border-radius: 50px;
+  color: #6b0000;
+  font-size: 1.1em;
+  font-family: 'Fredoka One', cursive;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.35);
+  user-select: none;
+}
+
+.spin-button:hover:not(.spinning) {
+  transform: scale(1.07);
+  box-shadow: 0 0 45px rgba(255, 215, 0, 0.55), 0 8px 20px rgba(220, 20, 60, 0.3);
+}
+
+.spin-button.spinning {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Grid ── */
+.roulette-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 50px;
+}
+
+/* ── Skill Cell ── */
+.skill-cell {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.07), rgba(220, 20, 60, 0.05));
+  border: 2px solid rgba(255, 215, 0, 0.22);
+  border-radius: 16px;
+  padding: 20px 14px;
+  text-align: center;
+  cursor: default;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+/* Spinning cell — flickers fast */
+.skill-cell.cell-spinning {
+  animation: flicker 0.08s steps(1) infinite;
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.2);
+}
+
+/* Hovered (only when not spinning) */
+.skill-cell.hovered {
+  transform: scale(1.08) translateY(-5px);
+  border-color: rgba(255, 215, 0, 0.65);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.28), 0 8px 20px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.13), rgba(220, 20, 60, 0.09));
+  z-index: 2;
+}
+
+/* Winner cell */
+.skill-cell.cell-winner {
+  border-color: #ffd700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 165, 0, 0.4);
+  animation: winnerPulse 0.8s ease-in-out infinite alternate;
+  z-index: 3;
+}
+
+/* ── Roulette Number ── */
+.roulette-number {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: white;
+}
+
+.roulette-number.red  { background: #DC143C; box-shadow: 0 0 8px rgba(220,20,60,0.5); }
+.roulette-number.black { background: #1a1a1a; box-shadow: 0 0 8px rgba(0,0,0,0.5); }
+
+/* ── Icon ── */
+.skill-icon {
+  font-size: 2em;
+  line-height: 1;
+  transition: filter 0.1s;
+}
+
+.skill-icon.icon-blur {
+  filter: blur(3px);
+}
+
+/* ── Skill Name ── */
+.skill-name {
+  font-size: 0.82em;
+  color: rgba(255, 215, 0, 0.9);
+  font-weight: bold;
+  line-height: 1.3;
+  transition: filter 0.1s;
+}
+
+.skill-name.text-blur,
+.skill-percentage.text-blur {
+  filter: blur(4px);
+  opacity: 0.5;
+}
+
+/* ── Level Bar ── */
+.skill-level-container {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.skill-level-bar {
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(255,255,255,0.25);
+}
+
+/* ── Percentage ── */
+.skill-percentage {
+  font-size: 0.78em;
+  color: rgba(255, 215, 0, 0.7);
+  transition: filter 0.1s;
+}
+
+/* ── Tooltip ── */
+.skill-description {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 15, 15, 0.97);
+  color: rgba(255, 215, 0, 0.92);
+  font-size: 0.78em;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  width: 210px;
+  text-align: center;
+  line-height: 1.4;
+  z-index: 20;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  animation: fadeUp 0.2s ease;
+}
+
+.skill-description::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(255, 215, 0, 0.3);
+}
+
+/* ── Winner Badge ── */
+.winner-badge {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  color: #6b0000;
+  font-size: 0.65em;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  animation: badgePop 0.4s ease;
+}
+
+/* ── Footer ── */
+.footer-message {
+  font-size: 1.1em;
+  color: rgba(255, 215, 0, 0.7);
+  text-align: center;
+  font-style: italic;
+}
+
+.winner-text { color: rgba(220, 20, 60, 0.9); font-weight: bold; }
+.jackpot-text { color: #ffd700; font-weight: bold; text-shadow: 0 0 8px rgba(255,215,0,0.4); }
+
+/* ── Keyframes ── */
+@keyframes shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes flicker {
+  0%   { opacity: 1;   background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(220,20,60,0.08)); }
+  50%  { opacity: 0.7; background: linear-gradient(135deg, rgba(220,20,60,0.1), rgba(255,215,0,0.06)); }
+  100% { opacity: 1;   background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(220,20,60,0.08)); }
+}
+
+@keyframes winnerPulse {
+  from { box-shadow: 0 0 20px rgba(255,215,0,0.5), 0 0 40px rgba(255,165,0,0.3); transform: scale(1); }
+  to   { box-shadow: 0 0 45px rgba(255,215,0,0.9), 0 0 80px rgba(255,165,0,0.5); transform: scale(1.05); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes badgePop {
+  0%   { transform: scale(0); opacity: 0; }
+  70%  { transform: scale(1.2); }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .roulette-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .roulette-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .main-title { font-size: 2em; letter-spacing: 2px; }
+  .skill-cell { min-height: 150px; padding: 16px 10px; }
+  .skill-icon { font-size: 1.6em; }
+  .skill-name { font-size: 0.75em; }
+}
+
+@media (max-width: 480px) {
+  .roulette-grid { grid-template-columns: repeat(2, 1fr); }
+  .main-title { font-size: 1.5em; letter-spacing: 1px; }
+  .spin-button { font-size: 0.9em; padding: 12px 24px; }
+  .skill-description { display: none; }
+}
