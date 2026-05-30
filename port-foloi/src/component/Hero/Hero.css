@@ -172,10 +172,9 @@
 }
 
 /* Highlight Colors */
-.highlight {
-    color: rgba(220, 20, 60, 0.9);
+.highlight {color: #00ffcc;
     font-weight: bold;
-    text-shadow: 0 0 8px rgba(220, 20, 60, 0.4);
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5), 1px 1px 4px rgba(0, 0, 0, 0.8);
     animation: highlightPulse 2s ease-in-out infinite;
 }
 
