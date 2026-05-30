@@ -13,6 +13,12 @@ const Footer = () => {
               <a href="mailto:zakaria.amghare4@gmail.com">zakaria.amghare4@gmail.com</a>
             </div>
             <div className="contact-item">
+              <span className="contact-label">LinkedIn:</span>
+              <a href="https://www.linkedin.com/in/zakaria-amghare/" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </div>
+            <div className="contact-item">
               <span className="contact-label">Phone:</span>
               <a href="tel:0772326216">0772326216</a>
             </div>

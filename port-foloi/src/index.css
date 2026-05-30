@@ -4,17 +4,46 @@
   padding: 0;
   box-sizing: border-box;
 }
- 
-html, body, #root {
+
+html {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-}
- 
-html {
-  overflow: hidden;
-}
- 
-body {
   overflow-y: auto;
+  overscroll-behavior: none;
+  background-color: #1a0000;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow: visible;
+  overscroll-behavior: none;
+  background-color: #1a0000;
+}
+
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* ── Casino Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(20, 0, 0, 0.8);
+  border-left: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffd700, #dc143c, #ffd700);
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffec6e, #ff4466, #ffec6e);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
 }
