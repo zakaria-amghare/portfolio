@@ -1,3 +1,4 @@
+
 .casino-section {
     width: 100%;
     min-height: 100vh;
@@ -302,19 +303,19 @@
 
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
     padding: 20px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 /* Card Flip Animation */
 .card-flip {
     background-color: transparent;
-    width: 95%;
-    height: 400px;
+    width: 100%;
+    height: 340px;
     perspective: 1000px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -411,39 +412,41 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding: 12px 10px;
 }
 
 .card-suit {
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 1.5em;
+    margin-bottom: 4px;
 }
 
 .card-content-inner h3 {
-    font-size: 1.5em;
+    font-size: 1.05em;
     color: #2c3e50;
-    margin-bottom: 15px;
+    margin-bottom: 6px;
     font-weight: bold;
+    line-height: 1.2;
 }
 
 .card-content-inner p {
     color: #555;
-    line-height: 1.4;
-    margin-bottom: 20px;
-    font-size: 0.95em;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    font-size: 0.78em;
+    flex: 1;
 }
 
 .github-link {
     display: inline-block;
-    padding: 12px 20px;
+    padding: 8px 14px;
     background: linear-gradient(135deg, #333, #555);
     color: white;
     text-decoration: none;
     border-radius: 25px;
     font-weight: bold;
+    font-size: 0.82em;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin-top: auto;
 }
 
 .github-link:hover {
@@ -494,4 +497,189 @@
 
 .card-flip {
     transition: transform 0.3s ease;
+}
+/* ── Joker Card ── */
+/* Front face: identical to regular cards — no purple, no glow */
+.joker-card .joker-front {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  border: 3px solid gold;
+}
+
+/* No floating emoji on front — it looks like any other card */
+.joker-card .joker-front::before,
+.joker-card .joker-front::after {
+  content: none;
+}
+
+/* Joker revealed back face */
+.joker-back-face {
+  background: linear-gradient(135deg, #1a0000, #3d0000);
+  border: 3px solid #ff2200;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0 25px rgba(255, 34, 0, 0.4);
+}
+
+.joker-revealed-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.joker-skull {
+  font-size: 3em;
+  animation: jokerFloat 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 34, 0, 0.7));
+}
+
+.joker-revealed-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1em;
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+  margin: 0;
+}
+
+.joker-revealed-sub {
+  font-size: 0.78em;
+  color: rgba(255, 150, 150, 0.8);
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Joker flipped state */
+.joker-card.joker-flipped .joker-inner {
+  transform: rotateY(180deg);
+}
+
+.joker-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+}
+
+.joker-card:hover:not(.joker-flipped) {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 40px rgba(204, 0, 255, 0.6);
+}
+
+@keyframes jokerFloat {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); }
+  50%       { transform: translate(-50%, -58%) rotate(5deg) scale(1.1); }
+}
+
+/* ── Joker Modal ── */
+.joker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: overlayFadeIn 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.joker-modal {
+  border-radius: 24px;
+  padding: 50px 40px;
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.joker-lose {
+  background: linear-gradient(135deg, #1a0030, #3d0066);
+  border: 3px solid #cc00ff;
+  box-shadow: 0 0 60px rgba(204, 0, 255, 0.4), 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.joker-emoji {
+  font-size: 4.5em;
+  margin-bottom: 16px;
+  animation: emojiSpin 0.6s ease-out;
+  display: block;
+}
+
+.joker-message {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5em;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  color: #cc00ff;
+  text-shadow: 0 0 15px rgba(204, 0, 255, 0.5);
+}
+
+.joker-sub {
+  font-size: 1em;
+  margin-bottom: 30px;
+  font-style: italic;
+  color: rgba(220, 150, 255, 0.85);
+}
+
+.joker-close {
+  padding: 14px 36px;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #7700cc, #cc00ff);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(204, 0, 255, 0.4);
+}
+
+.joker-close:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 28px rgba(204, 0, 255, 0.6);
+}
+
+/* ── Modal Animations ── */
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes emojiSpin {
+  from { transform: rotate(-180deg) scale(0); }
+  to   { transform: rotate(0deg)    scale(1); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card-flip { height: 280px; }
 }

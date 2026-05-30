@@ -2,27 +2,32 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Skills.css';
 
 const ALL_SKILLS = [
-  { name: 'Databases & Data Modeling', level: 95, color: '#61DAFB', icon: '🗃️', description: 'Designing and optimizing relational and NoSQL databases for scalable applications.' },
-  { name: 'Web Design',                level: 92, color: '#F7DF1E', icon: '🎨', description: 'Creating responsive, user-friendly interfaces with HTML, CSS, and design tools.' },
-  { name: 'Backend Development',       level: 88, color: '#339933', icon: '🔧', description: 'Building and maintaining server-side logic, APIs, and databases.' },
-  { name: 'Data Encryption',           level: 85, color: '#3776AB', icon: '🔐', description: 'Implementing secure algorithms to protect sensitive data in transit and at rest.' },
-  { name: 'Mobile App Development',    level: 90, color: '#1572B6', icon: '📱', description: 'Developing cross-platform mobile applications with smooth UX and performance.' },
-  { name: 'Text-Based Game Dev',       level: 82, color: '#47A248', icon: '🎮', description: 'Crafting interactive stories and logic-driven games in a terminal or console.' },
-  { name: 'Game Development',          level: 87, color: '#E34F26', icon: '🚀', description: 'Creating 2D/3D games with engines and frameworks like Unity or Godot.' },
-  { name: 'Git & GitHub',              level: 89, color: '#F05032', icon: '🗂️', description: 'Version control, branching, and collaboration using Git and GitHub.' },
-  { name: 'AI Prompt Engineering',     level: 78, color: '#2496ED', icon: '🧠', description: 'Designing effective prompts to guide large language models for accurate outputs.' },
-  { name: 'Excel Mastery',             level: 75, color: '#FF9900', icon: '📊', description: 'Advanced formulas, data visualization, and automation with spreadsheets.' },
-  { name: 'Network Administration',    level: 83, color: '#3178C6', icon: '🌐', description: 'Managing and troubleshooting local and cloud-based networks.' },
-  { name: 'Tutorial Creation',         level: 80, color: '#4FC08D', icon: '🎥', description: 'Producing clear and engaging technical tutorials and learning resources.' },
-  { name: 'Presentation Design',       level: 85, color: '#764ABC', icon: '🖼️', description: 'Building impactful slide decks for lectures, demos, and public speaking.' },
-  { name: 'GraphQL',                   level: 77, color: '#E10098', icon: '📡', description: 'Building efficient, flexible APIs and managing data with GraphQL schemas.' },
-  { name: 'Figma & UI Design',         level: 88, color: '#F24E1E', icon: '🖌️', description: 'Designing intuitive interfaces and prototypes using Figma.' },
+  // Core Cybersecurity
+  { name: 'Penetration Testing',           level: 88, color: '#FF4444', icon: '🎯', description: 'Conducting vulnerability assessments and ethical hacking using tools like Kali Linux, Metasploit, and Nmap.' },
+  { name: 'Network Monitoring',            level: 90, color: '#FF6B35', icon: '📡', description: 'Building and deploying scripts to monitor network traffic, detect anomalies, and alert on suspicious activity.' },
+  { name: 'Network Architecture',          level: 85, color: '#F7C59F', icon: '🏗️', description: 'Designing secure, scalable network topologies with proper segmentation and hardening.' },
+  { name: 'Wireless Security',             level: 87, color: '#4CC9F0', icon: '📶', description: 'WPA/WPA2 analysis, rogue access point detection, and deep wireless protocol understanding.' },
+  { name: 'Packet Analysis',               level: 89, color: '#4361EE', icon: '🔬', description: 'Capturing and dissecting network traffic with Wireshark to identify threats and anomalies.' },
+  { name: 'Malware Analysis',              level: 82, color: '#7209B7', icon: '🦠', description: 'Performing static and dynamic malware analysis to understand behavior, indicators, and impact.' },
+  { name: 'Incident Response',             level: 84, color: '#F72585', icon: '🚨', description: 'Identifying, containing, and recovering from security incidents following structured IR procedures.' },
+  { name: 'NIST & Forensics',              level: 83, color: '#3A0CA3', icon: '🔍', description: 'Applying NIST frameworks for forensic analysis, evidence collection, and compliance auditing.' },
+  { name: 'IDS/IPS',                       level: 81, color: '#560BAD', icon: '🛡️', description: 'Configuring and tuning intrusion detection and prevention systems to identify and block threats.' },
+  { name: 'Risk Assessment & Auditing',    level: 80, color: '#480CA8', icon: '📋', description: 'Evaluating security posture, identifying risk vectors, and producing actionable audit reports.' },
+  { name: 'OSINT',                         level: 86, color: '#3F37C9', icon: '🕵️', description: 'Gathering and analyzing open-source intelligence for threat research and reconnaissance.' },
+  { name: 'Cryptography',                  level: 85, color: '#4895EF', icon: '🔐', description: 'Implementing and analyzing encryption algorithms to protect data in transit and at rest.' },
+  { name: 'Firewall & Hardening',          level: 88, color: '#4CC9F0', icon: '🧱', description: 'Configuring firewalls, applying hardening baselines, and enforcing least-privilege access.' },
+  { name: 'SOC Operations',                level: 79, color: '#F77F00', icon: '🖥️', description: 'Security operations fundamentals including log analysis, SIEM usage, and alert triage.' },
+  // Supporting Technical
+  { name: 'Python & Bash Scripting',       level: 90, color: '#3776AB', icon: '🐍', description: 'Writing security-focused scripts for automation, network scanning, and forensic tooling.' },
+  { name: 'Linux Administration',          level: 88, color: '#FCC624', icon: '🐧', description: 'Managing Linux systems, user permissions, services, and hardening configurations.' },
+  { name: 'TCP/IP & Protocols',            level: 91, color: '#00B4D8', icon: '🌐', description: 'Deep understanding of TCP/IP, DNS, HTTP, ARP, and other core networking protocols.' },
+  { name: 'Git & GitHub',                  level: 85, color: '#F05032', icon: '🗂️', description: 'Version control, branching strategies, and collaborative development workflows.' },
 ];
 
 const Skills = () => {
   const [displayedSkills, setDisplayedSkills] = useState(ALL_SKILLS);
   const [spinning, setSpinning] = useState(false);
-  const [lockedCells, setLockedCells] = useState(Array(15).fill(true));
+  const [lockedCells, setLockedCells] = useState(Array(ALL_SKILLS.length).fill(true));
   const [hoveredCell, setHoveredCell] = useState(null);
   const [winner, setWinner] = useState(null);
   const intervalRef = useRef(null);
@@ -33,7 +38,7 @@ const Skills = () => {
 
     setSpinning(true);
     setWinner(null);
-    setLockedCells(Array(15).fill(false)); // all cells spinning
+    setLockedCells(Array(ALL_SKILLS.length).fill(false)); // all cells spinning
 
     // Shuffle displayed skills rapidly
     intervalRef.current = setInterval(() => {
@@ -51,7 +56,7 @@ const Skills = () => {
     const finalOrder = [...ALL_SKILLS].sort(() => Math.random() - 0.5);
 
     lockTimersRef.current = [];
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < ALL_SKILLS.length; i++) {
       const t = setTimeout(() => {
         setLockedCells(prev => {
           const next = [...prev];
@@ -65,11 +70,10 @@ const Skills = () => {
         });
 
         // Last cell locks — stop everything
-        if (i === 14) {
+        if (i === ALL_SKILLS.length - 1) {
           clearInterval(intervalRef.current);
           setSpinning(false);
-          // Pick a random "winner" cell to highlight
-          const winnerIdx = Math.floor(Math.random() * 15);
+          const winnerIdx = Math.floor(Math.random() * ALL_SKILLS.length);
           setWinner(winnerIdx);
         }
       }, 600 + i * 180); // stagger: 600ms base + 180ms per cell
