@@ -4,6 +4,7 @@ import Hero from "./component/Hero/Hero.jsx";
 import Bg from "./component/Background/Bg.jsx";
 import Cards from "./component/cards/Cards.jsx";
 import Skills from "./component/Skills/Skills.jsx";
+import Wheel from "./component/Wheel/Wheel.jsx";
 import Contact from "./component/Contact/Contact.jsx";
 import Footer from "./component/Footer/Footer.jsx";
 
@@ -15,6 +16,7 @@ const App = () => {
       <Hero />
       <Cards />
       <Skills />
+      <Wheel />
       <Contact />
       <Footer />
     </div>
