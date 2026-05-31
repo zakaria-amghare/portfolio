@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.css"; // Assuming you have a CSS file for styling
-import AI from "../../assets/AI.png"; // Importing the AI image
+import AI from "../../assets/AI.webp"; // Importing the AI image
 const Hero = () => {
   return (
     <div className="hero" id="hero-section">

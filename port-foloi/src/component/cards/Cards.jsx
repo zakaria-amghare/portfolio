@@ -89,7 +89,7 @@ const Cards = () => {
     <div className="casino-section">
 
       <div className="casino-header">
-        <h2 className="casino-title">🎰 My Project Cards</h2>
+        <h2 className="casino-title">🎰 My Project Cards 🎰</h2>
         <p className="casino-subtitle">Click on each card to reveal the project secrets!</p>
       </div>
 

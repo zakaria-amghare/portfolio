@@ -1,4 +1,3 @@
-
 .casino-section {
     width: 100%;
     min-height: 100vh;
@@ -16,7 +15,7 @@
     margin: 40px auto 30px;
     padding: 25px 20px;
     position: relative;
-    max-width: 700px;
+    max-width: 900px;
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.12) 0%, rgba(220, 20, 60, 0.1) 50%, rgba(255, 215, 0, 0.12) 100%);
     border-radius: 25px;
     border: 2px solid rgba(255, 215, 0, 0.4);
@@ -203,7 +202,7 @@
     .casino-header {
         margin: 35px auto 25px;
         padding: 20px 18px;
-        max-width: 650px;
+        max-width: 750px;
     }
     
     .casino-title {
@@ -532,10 +531,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
 .joker-skull {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  margin: 0;
   font-size: 3em;
   animation: jokerFloat 2s ease-in-out infinite;
   filter: drop-shadow(0 0 10px rgba(255, 34, 0, 0.7));

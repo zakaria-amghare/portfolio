@@ -122,9 +122,11 @@ export default function Wheel() {
 
   return (
     <section className="wheel-section" id="wheel-section">
+      <div className="casino-header">
       <div className="wheel-header">
         <h2 className="wheel-title">🎡 WHEEL OF FORTUNE 🎡</h2>
         <p className="wheel-subtitle">Spin to reveal the traits that make a great security analyst</p>
+      </div>
       </div>
 
       <div className="wheel-stage">

@@ -91,11 +91,13 @@ const Skills = () => {
 
   return (
     <div className="roulette-container" id="skills-section">
+      <div className="casino-header">
       <div className="header-section">
         <h2 className={`main-title ${spinning ? 'title-spinning' : ''}`}>
           🎰 SKILLS ROULETTE 🎰
         </h2>
         <p className="subtitle">Place Your Bets on Excellence!</p>
+        </div>
         <div
           className={`spin-button ${spinning ? 'spinning' : ''}`}
           onClick={spinRoulette}
